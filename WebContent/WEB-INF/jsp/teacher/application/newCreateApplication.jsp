@@ -23,12 +23,31 @@
         	
         });
         </script>
+        <script type="text/javascript">
+            $('#submitApplication').click(function(){
+            	
+            	var data = {
+            			
+            			//
+            			"softwareRequirement":$('#softwareRequirement').val(),
+            			"ideaTime1":$('#idaelTime1Week').val()+$("#idealTime1Time").val(),
+            			"ideaTime2":$('#idaelTime2Week').val()+$("#idealTime2Time").val(),
+            			"applicationRemark":$('#applicationRemark'),
+            			"":$('#'),
+            			"":$('#'),
+            			"":$('#'),
+            			"":$('#'),
+            			
+            	};
+            	
+            });
+        </script>
     </head>
     <title>
     </title>
     <body>
         <div >
-            <form id="applicationForm" action="newSubmitApplication">
+            <form id="applicationForm">
             
                 
                 
@@ -121,7 +140,7 @@
                     <fieldset style="width:200px; " id="idealTime1" name="idealTime1">
                         <legend> 理想时间1</legend>
                         
-                        <select multiple="multiple" size="2">
+                        <select id="idealTime1Week" name="idealTime1Week">
                             <option>星期一</option>
                             <option>星期二</option>
                             <option>星期三</option>
@@ -131,7 +150,7 @@
                             
                         </select>
                         
-                        <select>
+                        <select id="idealTime1Time" name="idealTime1Time">
                             <option>1-2</option>
                             <option>3-4</option>
                             <option>5-6</option>
@@ -145,7 +164,7 @@
                     <fieldset style="width:200px; " id="idealTime2" name="idealTime2">
                         <legend> 理想时间2</legend>
                         
-                        <select>
+                        <select id="idealTime2Week" name="idealTime2Week">
                             <option>星期一</option>
                             <option>星期二</option>
                             <option>星期三</option>
@@ -155,7 +174,7 @@
                             
                         </select>
                         
-                        <select>
+                        <select id="idealTime2Time" name="idealTime2Time">
                             <option>1-2</option>
                             <option>3-4</option>
                             <option>5-6</option>
@@ -177,7 +196,7 @@
                                                                       
                     <br>    
                     
-                    <input type="submit" value="提交申请">                   
+                    <input id="submitApplication" type="submit" value="提交申请">                   
                 </div>   
                 
                                              

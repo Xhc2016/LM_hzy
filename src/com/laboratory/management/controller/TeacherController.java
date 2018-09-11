@@ -5,11 +5,12 @@ package com.laboratory.management.controller;
 
 import javax.servlet.http.HttpSession;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.laboratory.management.pojo.Application;
@@ -82,8 +83,16 @@ public class TeacherController {
 		return modelAndView;
 	}
 	
+	
+	
 	@RequestMapping("newSubmitApplication")
-	public ModelAndView submitApplication(HttpSession session,Application application,Course course) {
+	public ModelAndView submitApplication(
+			HttpSession session,
+			Application application,
+			Course course
+			) {
+		
+		
 		
 		User teacher = (User) session.getAttribute("user");
 	
