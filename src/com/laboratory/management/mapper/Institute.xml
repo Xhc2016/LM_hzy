@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+    <mapper namespace="com.laboratory.management.mapper.InstituteMapper">
+    
+        <insert id="addInstitute" parameterType="String" >
+            insert into institute ( institute_name ) values (#{instituteName})   
+        </insert>
+         
+        <delete id="deleteInstitute" parameterType="String">
+            delete from institute where institute_id= #{instituteId}  
+        </delete>
+         
+        <select id="getInstitute" parameterType="String" resultType="Institute">
+            select * from   institute  where institut_id= #{instituteId}   
+        </select> 
+        
+		<update id="updateInstitute" parameterType="Institute" >
+			update institute set institute_name=#{instituteName} where instituteId=#{instituteId}
+			<!-- <trim prefix="set" suffixOverrides=",">
+				<if test="id!=null">id=#{id},</if>
+				<if test="name!=null">name=#{name}</if>
+			</trim> -->
+		</update>
+        
+        <select id="listInstitute" resultType="Institute">
+            select * from   institute     
+        </select>    
+    </mapper>

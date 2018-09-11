@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.laboratory.management.mapper.UserMapper">
+    
+        <!--  
+        <insert id="add" parameterType="User" >
+            insert into user_ (nickName) values (#{nickName});
+        </insert>
+
+        <delete id="delete" parameterType="User" >
+            delete from user_ where id= #{id}   
+        </delete>
+         
+        <select id="get" parameterType="_int" resultType="User">
+            select * from   user_  where id= #{id}    
+        </select>
+ 
+        <update id="update" parameterType="User" >
+            update user_ set nickName=#{nickName},gender=#{gender} where id=#{id} 
+        </update>
+        
+        <select id="list" resultType="User">
+            select * from   user_
+        </select> 
+        
+        -->
+        
+        
+        <select id="login" parameterType="map" resultType="User">
+            SELECT * FROM user WHERE user_id=#{userId} AND password=#{password}
+        </select>
+              
+        <select id="getUserInfo" parameterType="map" resultType="User">
+            SELECT * FROM userinfo WHERE user_id=#{userId} 
+        </select>
+        <!--
+        <select id="Login" parameterType="map" resultType="Boolean">
+            IF NOT EXISTS (SELECT * FROM user WHERE user_id=#{userId} AND password=#{password})
+                BEGIN
+                    SELECT CAST(1 AS INT)
+                END
+                
+                BEGIN 
+                    SELECT CAST(1 AS INT)
+                END
+        </select>
+        -->
+        
+        
+    </mapper>

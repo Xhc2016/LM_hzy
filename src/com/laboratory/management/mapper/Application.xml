@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.laboratory.management.mapper.ApplicationMapper">
+    
+        <!--  
+        <insert id="add" parameterType="User" >
+            insert into user_ (nickName) values (#{nickName});
+        </insert>
+
+        <delete id="delete" parameterType="User" >
+            delete from user_ where id= #{id}   
+        </delete>
+         
+        <select id="get" parameterType="_int" resultType="User">
+            select * from   user_  where id= #{id}    
+        </select>
+ 
+        <update id="update" parameterType="User" >
+            update user_ set nickName=#{nickName},gender=#{gender} where id=#{id} 
+        </update>
+        
+        <select id="list" resultType="User">
+            select * from   user_
+        </select> 
+        
+        -->
+        <insert id="teacherCreateApplication" parameterType="Application" >
+            insert into application (user_name) values (#{teacherName});
+        </insert>
+        
+        
+        
+    </mapper>
