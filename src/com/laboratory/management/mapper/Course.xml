@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.laboratory.management.mapper.CourseMapper">
+		
+		<insert id="createCourse" parameterType="Course">
+			INSERT INTO course(course_id,course_name,course_type,course_campus,course_institute,course_student_number,course_start_end_time,course_total_credit,course_experiment_time,course_experiment_credit)
+			VALUES
+			(#{courseId},#{courseName},#{courseType},#{courseCampus},#{courseInstitute},#{courseStudentNumber},#{courseStartEndTime},#{courseTotalCredit},#{courseExperimentTime},#{courseExperimentCredit})
+		</insert>
+		
+	</mapper>
