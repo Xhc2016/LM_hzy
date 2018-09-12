@@ -30,6 +30,15 @@
             insert into application (user_name) values (#{teacherName});
         </insert>
         
+        <insert id="createApplication" parameterType="Application">
+        
+            insert into application
+             (application_id,user_id,course_id,ideal_Time_1,ideal_Time_2,software_requirement,application_remark)
+             values
+              (#{applicationId},#{user.userId},#{course.courseId},
+              #{idealTime1},#{idealTime2},#{softwareRequirement},#{applicationRemark})
+        </insert>
+        
         
         
     </mapper>

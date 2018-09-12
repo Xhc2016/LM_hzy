@@ -11,9 +11,6 @@ import com.laboratory.management.pojo.Application;
 
 public interface ApplicationMapper {
 	
-	
-public String createApplication(Application application);
-	
 	public List<Application> teacherApplication(int teacherId);
 	
 	public List<Application> list();
@@ -26,6 +23,6 @@ public String createApplication(Application application);
 	
 	public List<Application> select2Application(@Param("class_campus")String classCampus,@Param("week")String week);
 
-	public void teacherCreateApplication(Application application);
+	public void createApplication(Application application);
 
 }

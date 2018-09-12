@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -20,6 +20,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.laboratory.management.pojo.Application;
 import com.laboratory.management.pojo.Course;
 import com.laboratory.management.pojo.User;
+import com.laboratory.management.service.ApplicationService;
 import com.laboratory.management.service.InstitueteService;
 import com.laboratory.management.service.TeacherService;
 
@@ -30,6 +31,8 @@ public class TeacherController {
 	TeacherService teacherService;
 	@Autowired
 	InstitueteService institueteService;
+	@Autowired
+	ApplicationService applicationService;
 	
 	
 	
@@ -106,15 +109,19 @@ public class TeacherController {
 		
 		
 		
-		User teacher = (User) session.getAttribute("user");
+		User user = (User) session.getAttribute("user");
 	
 		//System.out.println(teacher.toString());
 		
-		application.setUser(teacher);
+		application.setUser(user);
 		
-		System.out.println(application.toString());
+		application.setCourse(course);
 		
-		System.out.println(course.toString());
+		applicationService.createApplication(application);
+		
+		//System.out.println(application.toString());
+		
+		//System.out.println(course.toString());
 		
 		JSONObject jsonObject = new JSONObject();
 		

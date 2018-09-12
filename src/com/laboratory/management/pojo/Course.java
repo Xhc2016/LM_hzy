@@ -12,7 +12,7 @@ public class Course {
 	
 	private String courseCampus; //课程校区
 	
-	private String courseInstite; //课程学院
+	private String courseInstitute; //课程学院
 	
 	private int courseStudentNumber; //课程学生
 	
@@ -58,12 +58,12 @@ public class Course {
 		this.courseCampus = courseCampus;
 	}
 
-	public String getCourseInstite() {
-		return courseInstite;
+	public String getCourseInstitute() {
+		return courseInstitute;
 	}
 
-	public void setCourseInstite(String courseInstite) {
-		this.courseInstite = courseInstite;
+	public void setCourseInstitute(String courseInstitute) {
+		this.courseInstitute = courseInstitute;
 	}
 
 	public int getCourseStudentNumber() {
@@ -121,7 +121,7 @@ public class Course {
 	@Override
 	public String toString() {
 		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", courseType=" + courseType
-				+ ", courseCampus=" + courseCampus + ", courseInstite=" + courseInstite + ", courseStudentNumber="
+				+ ", courseCampus=" + courseCampus + ", courseInstitute=" + courseInstitute + ", courseStudentNumber="
 				+ courseStudentNumber + ", courseStartEndTime="
 				+ courseStartEndTime + ", courseTotalCredit=" + courseTotalCredit + ", courseExperimentTime="
 				+ courseExperimentTime + ", courseExperimentCredit=" + courseExperimentCredit + "]";
