@@ -1,6 +1,8 @@
 package com.laboratory.management.controller;
 
 
+import javax.annotation.Resource;
+
 //import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,11 +13,14 @@ import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSONObject;
 import com.laboratory.management.pojo.Application;
 import com.laboratory.management.pojo.Course;
 import com.laboratory.management.pojo.User;
+import com.laboratory.management.service.InstitueteService;
 import com.laboratory.management.service.TeacherService;
 
 @Controller
@@ -23,6 +28,8 @@ import com.laboratory.management.service.TeacherService;
 public class TeacherController {
 	@Autowired
 	TeacherService teacherService;
+	@Autowired
+	InstitueteService institueteService;
 	
 	
 	
@@ -35,6 +42,10 @@ public class TeacherController {
 		ModelAndView modelAndView = new ModelAndView();
 		
 		modelAndView.addObject("teacher",teacher);
+		
+		modelAndView.addObject("instituteList",institueteService.institutesList());
+		
+		//System.out.println(institueteService.institutesList());
 		
 		modelAndView.setViewName("teacher/application/newCreateApplication");
 		
@@ -85,8 +96,9 @@ public class TeacherController {
 	
 	
 	
+	@ResponseBody
 	@RequestMapping("newSubmitApplication")
-	public ModelAndView submitApplication(
+	public String submitApplication(
 			HttpSession session,
 			Application application,
 			Course course
@@ -96,15 +108,19 @@ public class TeacherController {
 		
 		User teacher = (User) session.getAttribute("user");
 	
-		System.out.println(teacher.toString());
+		//System.out.println(teacher.toString());
 		
-		
+		application.setUser(teacher);
 		
 		System.out.println(application.toString());
 		
 		System.out.println(course.toString());
 		
-		return new ModelAndView("teacher/index");
+		JSONObject jsonObject = new JSONObject();
+		
+		jsonObject.put("data", "succcccccces");
+		
+		return jsonObject.toJSONString();
 		
 	}
 	

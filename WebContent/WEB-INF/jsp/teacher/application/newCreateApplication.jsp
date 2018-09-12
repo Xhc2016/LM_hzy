@@ -23,25 +23,7 @@
         	
         });
         </script>
-        <script type="text/javascript">
-            $('#submitApplication').click(function(){
-            	
-            	var data = {
-            			
-            			//
-            			"softwareRequirement":$('#softwareRequirement').val(),
-            			"ideaTime1":$('#idaelTime1Week').val()+$("#idealTime1Time").val(),
-            			"ideaTime2":$('#idaelTime2Week').val()+$("#idealTime2Time").val(),
-            			"applicationRemark":$('#applicationRemark'),
-            			"":$('#'),
-            			"":$('#'),
-            			"":$('#'),
-            			"":$('#'),
-            			
-            	};
-            	
-            });
-        </script>
+       
     </head>
     <title>
     </title>
@@ -74,7 +56,7 @@
                     <br>
                    
                                                         实验类别 :
-                    <select id="classType">
+                    <select id="courseType">
                         <option>基础</option>
                         <option>专业基础</option>
                         <option>专业</option>
@@ -83,8 +65,17 @@
                     
                     <br>
                     
+                                                      上课学院:
+                    <select id="courseInstitute" >
+                    
+                        <c:forEach items="${instituteList }" var="institute" varStatus="status">
+                        	<option>${institute.instituteName }</option>
+                        </c:forEach>
+                        
+                    </select>
+                    
                                                        实验校区 :
-                    <select id="classCampus">
+                    <select id="courseCampus">
                         <option>徐汇校区</option>
                         <option>奉贤校区</option>
                     </select>
@@ -108,7 +99,7 @@
                     <fieldset style="width:200px; " id="courseStartEndTime" name="courseStartEndTime">
                     
                                                        实验起始周
-                    <input  style="width:50px; " class="require digits" type="text" id="courseStratTime" name="courseStratTime" title="请输入正确的起始时间">
+                    <input  style="width:50px; " class="require digits" type="text" id="courseStartTime" name="courseStratTime" title="请输入正确的起始时间">
                     
                     <br>
                     
@@ -124,6 +115,10 @@
                     <input class="require digits" type="text" id="courseTotalCredit" name="courseTotalCredit" title="请输入正确的课程学分">
                     
                     <br>
+                    
+                                                      实验人数
+                    
+                    <input class="require digits" type="text" id="courseStudentNumber" name="courseStudentNumber" title="请输入正确的实验人数">
                     
                                                        实验学时
                     <input class="require digits" type="text" id="courseExperimentTime" name="courseExperimentTime" title="请输入正确的实验学时">
@@ -202,6 +197,57 @@
                                              
             
             </form>
+             <script type="text/javascript">
+            $('#submitApplication').click(function(){
+            	
+            	var myData = {
+            			
+            			///课程信息
+            			"courseId":$('#courseId').val(),
+            			"courseName":$('#courseName').val(),
+            			"courseType":$('#courseType').val(),
+            			"courseCampus":$('#courseCampus').val(),
+            			"courseInstitute":$('#courseInstitute').val(),
+            			"courseStudentNumber":$('#courseStudentNumber').val(),
+            			"courseStartEndTime":$('#courseStartTime').val()+"-"+$('#courseEndTime').val(),
+            			"courseTotalCredit":$('#courseTotalCredit').val(),
+            			"courseExperimentTime":$('#courseExperimentTime').val(),
+            			"courseExperimentCredit":$('#courseExperimentCredit').val(),
+            			
+            			//申请信息
+            			"softwareRequirement":$('#softwareRequirement').val(),
+            			"idealTime1":$('#idealTime1Week').val()+$("#idealTime1Time").val(),
+            			"idealTime2":$('#idealTime2Week').val()+$("#idealTime2Time").val(),
+            			"applicationRemark":$('#applicationRemark').val()            			
+            	};
+            	
+            	//alert(myData);
+            	
+            	var jsonData = JSON.stringify(myData);
+            	
+            	alert(jsonData);
+            	
+            	$.ajax({
+            		
+            		type:"post",
+            		url:"newSubmitApplication",
+            		data:myData,
+            		success: function(data){
+            			
+            			alert("success");
+            			
+            			window.location.href = "forehome";
+            			
+            		},
+            		error: function(data){
+            			
+            			alert("error");
+            		}
+            		
+            	});
+            	
+            });
+        </script>
         </div>
     </body>
 </html>
