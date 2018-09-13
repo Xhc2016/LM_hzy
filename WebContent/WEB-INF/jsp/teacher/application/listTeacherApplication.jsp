@@ -5,3 +5,5 @@
 
 <title>ApplicationList</title>
 申请信息
+<br>
+<c:forEach items="${applicationList }" var="application" varStatus="status">${application.applicationId }<br></c:forEach>

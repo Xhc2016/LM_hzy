@@ -208,7 +208,6 @@
             			"courseType":$('#courseType').val(),
             			"courseCampus":$('#courseCampus').val(),
             			"courseInstitute":$('#courseInstitute').val(),
-            			"courseStudentNumber":$('#courseStudentNumber').val(),
             			"courseStartEndTime":$('#courseStartTime').val()+"-"+$('#courseEndTime').val(),
             			"courseTotalCredit":$('#courseTotalCredit').val(),
             			"courseExperimentTime":$('#courseExperimentTime').val(),
@@ -218,7 +217,8 @@
             			"softwareRequirement":$('#softwareRequirement').val(),
             			"idealTime1":$('#idealTime1Week').val()+$("#idealTime1Time").val(),
             			"idealTime2":$('#idealTime2Week').val()+$("#idealTime2Time").val(),
-            			"applicationRemark":$('#applicationRemark').val()            			
+            			"applicationRemark":$('#applicationRemark').val()  
+            			"studentNumber":$('#studentNumber').val(),
             	};
             	
             	//alert(myData);
@@ -232,16 +232,18 @@
             		type:"post",
             		url:"newSubmitApplication",
             		data:myData,
-            		success: function(data){
+            		success: function(result){
             			
-            			alert("success");
             			
-            			window.location.href = "forehome";
+            			
+            			alert("申请提交成功");
+            			
+            			window.location.href = "teacherIndex";
             			
             		},
-            		error: function(data){
+            		error: function(result){
             			
-            			alert("error");
+            			alert("提交错误 请检查表单后 提交");
             		}
             		
             	});

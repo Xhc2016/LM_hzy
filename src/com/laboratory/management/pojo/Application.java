@@ -21,6 +21,10 @@ public class Application {
 	private String applicationState; //申请受理情况
 	
 	private String applicationTime; //申请时间
+	
+	private int StudentNumber;
+	
+	
 
 	/**
 	 * @return applicationId
@@ -148,6 +152,20 @@ public class Application {
 		this.applicationTime = applicationTime;
 	}
 
+	/**
+	 * @return studentNumber
+	 */
+	public int getStudentNumber() {
+		return StudentNumber;
+	}
+
+	/**
+	 * @param studentNumber 要设置的 studentNumber
+	 */
+	public void setStudentNumber(int studentNumber) {
+		StudentNumber = studentNumber;
+	}
+
 	/* （非 Javadoc）
 	 * @see java.lang.Object#toString()
 	 */
@@ -156,8 +174,10 @@ public class Application {
 		return "Application [applicationId=" + applicationId + ", user=" + user + ", course=" + course
 				+ ", softwareRequirement=" + softwareRequirement + ", idealTime1=" + idealTime1 + ", idealTime2="
 				+ idealTime2 + ", applicationRemark=" + applicationRemark + ", applicationState=" + applicationState
-				+ ", applicationTime=" + applicationTime + "]";
+				+ ", applicationTime=" + applicationTime + ", StudentNumber=" + StudentNumber + "]";
 	}
+
+	
 	
 	
 

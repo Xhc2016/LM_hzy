@@ -1,7 +1,11 @@
 package com.laboratory.management.service.impl;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.laboratory.management.mapper.ApplicationMapper;
 import com.laboratory.management.mapper.CourseMapper;
@@ -16,9 +20,11 @@ public class ApplicationServiceImpl implements ApplicationService {
 	CourseMapper courseMapper;
 	
 	
+	@Transactional
 	@Override
-	public void createApplication(Application application) {
+	public void createApplication(Application application) throws Exception {
 		
+		application.setApplicationId(UUID.randomUUID().toString().replaceAll("-",""));
 		
 		System.out.println(application);
 		
@@ -27,5 +33,17 @@ public class ApplicationServiceImpl implements ApplicationService {
 		applicationMapper.createApplication(application);
 		
 	}
+
+
+	
+	@Override
+	public List<Application> listApplicationByTeacherId(String Id) {
+        
+		
+		return applicationMapper.listApplicationByTeacherId(Id);
+	}
+	
+	
+	
 
 }

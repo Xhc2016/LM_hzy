@@ -11,17 +11,23 @@ import com.laboratory.management.pojo.Application;
 
 public interface ApplicationMapper {
 	
-	public List<Application> teacherApplication(int teacherId);
+	public List<Application> listApplicationByTeacherId(String teacherId);
 	
-	public List<Application> list();
+	public List<Application> listApplication(); //列出所有申请
+	
+	public List<Application> listApplicationByApplicationState(String state); //根据申请的状态 
+	 
+	//public List<Application> list();
 
-	public void delete(int classId);
+	//public void delete(int classId);
 	
-	public Application get(int classId);
+	//public Application get(int classId);
 
-	public void update(Application application);
+	public void updateApplication(Application application);
 	
-	public List<Application> select2Application(@Param("class_campus")String classCampus,@Param("week")String week);
+	public void deleteApplcation(String applicationId);
+	
+	//public List<Application> select2Application(@Param("class_campus")String classCampus,@Param("week")String week);
 
 	public void createApplication(Application application);
 

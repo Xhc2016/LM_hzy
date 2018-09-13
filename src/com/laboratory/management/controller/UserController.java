@@ -30,7 +30,7 @@ public class UserController {
 		User user = userService.login(userId, password);
 		
 		ModelAndView modelAndView = new ModelAndView();
-		
+		  
 		if(user == null ) {
 			
 			modelAndView.addObject("message","password OR userId error");

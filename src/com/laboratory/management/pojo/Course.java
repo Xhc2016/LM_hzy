@@ -14,9 +14,7 @@ public class Course {
 	
 	private String courseInstitute; //课程学院
 	
-	private int courseStudentNumber; //课程学生
 	
-	//private String courseWeekType; //课程单双周
 	
 	private String courseStartEndTime; //课程起始结束时间
 	
@@ -66,26 +64,9 @@ public class Course {
 		this.courseInstitute = courseInstitute;
 	}
 
-	public int getCourseStudentNumber() {
-		return courseStudentNumber;
-	}
 
-	public void setCourseStudentNumber(int courseStudentNumber) {
-		this.courseStudentNumber = courseStudentNumber;
-	}
+
 	
-	/*
-
-	public String getCourseWeekType() {
-		return courseWeekType;
-	}
-
-	public void setCourseWeekType(String courseWeekType) {
-		this.courseWeekType = courseWeekType;
-	}
-
-
-    */
 	public String getCourseStartEndTime() {
 		return courseStartEndTime;
 	}
@@ -121,8 +102,7 @@ public class Course {
 	@Override
 	public String toString() {
 		return "Course [courseId=" + courseId + ", courseName=" + courseName + ", courseType=" + courseType
-				+ ", courseCampus=" + courseCampus + ", courseInstitute=" + courseInstitute + ", courseStudentNumber="
-				+ courseStudentNumber + ", courseStartEndTime="
+				+ ", courseCampus=" + courseCampus + ", courseInstitute=" + courseInstitute +", courseStartEndTime="
 				+ courseStartEndTime + ", courseTotalCredit=" + courseTotalCredit + ", courseExperimentTime="
 				+ courseExperimentTime + ", courseExperimentCredit=" + courseExperimentCredit + "]";
 	}

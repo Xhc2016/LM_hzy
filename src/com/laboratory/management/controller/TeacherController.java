@@ -1,13 +1,15 @@
 package com.laboratory.management.controller;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 //import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
-
+import org.aspectj.apache.bcel.generic.NEW;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -35,16 +37,20 @@ public class TeacherController {
 	ApplicationService applicationService;
 	
 	
+	@RequestMapping("teacherIndex")
+	public ModelAndView toTeacherIndex() {
+		return new ModelAndView("teacher/index");
+	}
 	
 	
 	@RequestMapping("toApply")
-	public ModelAndView toApply(HttpSession session) {
+	public ModelAndView toApply() {
 		
-		User teacher = (User) session.getAttribute("teacher");
+		//User teacher = (User) session.getAttribute("teacher");
 		
 		ModelAndView modelAndView = new ModelAndView();
 		
-		modelAndView.addObject("teacher",teacher);
+		//modelAndView.addObject("teacher",teacher);
 		
 		modelAndView.addObject("instituteList",institueteService.institutesList());
 		
@@ -56,22 +62,7 @@ public class TeacherController {
 		
 	}
 	
-	@RequestMapping("applicationList")
-	public ModelAndView applicationList(HttpSession session) {
-		
-		ModelAndView modelAndView = new ModelAndView();
-		
-		User teacher = (User) session.getAttribute("user");
-		
-		
-		System.out.println(teacher.toString());
-		//List applicationList
-		
-		modelAndView.setViewName("teacher/application/listTeacherApplication");
-		
-		return modelAndView;
-		
-	}
+	
 
 	 
 	@RequestMapping("submitApplication")
@@ -113,23 +104,65 @@ public class TeacherController {
 	
 		//System.out.println(teacher.toString());
 		
+		JSONObject jsonObject = new JSONObject();
+		
 		application.setUser(user);
 		
 		application.setCourse(course);
-		
-		applicationService.createApplication(application);
+		try {
+			
+			applicationService.createApplication(application);
+			
+		}catch (Exception e) {
+			
+			jsonObject.put("error", "sql error");
+			
+			System.out.println(e);
+			
+			//return jsonObject.toJSONString();
+		}
+		//applicationService.createApplication(application);
 		
 		//System.out.println(application.toString());
 		
 		//System.out.println(course.toString());
 		
-		JSONObject jsonObject = new JSONObject();
 		
-		jsonObject.put("data", "succcccccces");
+		
+		jsonObject.put("success", "succcccccces");
+		
+		System.out.println("inser Over");
 		
 		return jsonObject.toJSONString();
 		
 	}
+	
+	@RequestMapping("teacherInformation")
+	public String toTeacherInfo() {
+		
+		return "teacher/info";
+		
+	}
+	
+	@RequestMapping("applicationList")
+	public ModelAndView applicationList(HttpSession session) {
+		
+		User teacher = (User) session.getAttribute("user");
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		List<Application> applicationsList = applicationService.listApplicationByTeacherId(teacher.getUserId());
+		
+		System.out.println(applicationsList);
+		
+		modelAndView.addObject("applicationList", applicationsList);
+		
+		modelAndView.setViewName("teacher/application/listTeacherApplication");
+		
+		return modelAndView;
+		
+	}
+	
 	
 
 }

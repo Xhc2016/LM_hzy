@@ -5,9 +5,9 @@
 	<mapper namespace="com.laboratory.management.mapper.CourseMapper">
 		
 		<insert id="createCourse" parameterType="Course">
-			INSERT INTO course(course_id,course_name,course_type,course_campus,course_institute,course_student_number,course_start_end_time,course_total_credit,course_experiment_time,course_experiment_credit)
+			INSERT INTO course(course_id,course_name,course_type,course_campus,course_start_end_time,course_total_credit,course_experiment_time,course_experiment_credit)
 			VALUES
-			(#{courseId},#{courseName},#{courseType},#{courseCampus},#{courseInstitute},#{courseStudentNumber},#{courseStartEndTime},#{courseTotalCredit},#{courseExperimentTime},#{courseExperimentCredit})
+			(#{courseId},#{courseName},#{courseType},#{courseCampus},#{courseStartEndTime},#{courseTotalCredit},#{courseExperimentTime},#{courseExperimentCredit})
 		</insert>
 		
 	</mapper>
