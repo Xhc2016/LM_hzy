@@ -27,7 +27,9 @@
         
         -->
         
-        <select id="listApplicationByTeacherId" parameterType="String" resultType="Application">
+        
+        
+        <select id="listApplicationByTeacherId" parameterType="String" resultMap="ApplicationsMap">
         	SELECT 
         	a.application_id as application_id,
         	a.course_id as course_id,
@@ -38,7 +40,6 @@
         	a.application_time as application_time,
         	a.application_remark as application_remark,
         	a.student_number as student_number,
-        	
         	
         	
         	c.course_id as course_id ,
@@ -54,6 +55,35 @@
 	            inner join course c on a.course_id = c.course_id
 	        Where user_id = #{teacherId}
         </select>
+        
+        
+        
+        <resultMap type="Application" id="ApplicationsMap">
+        	<id column="id"/>
+        	<result property="applicationId" column="application_id"/>
+        	<result property="idealTime1" column="ideal_time_1"/>
+        	<result property="idealTime2" column="ideal_time_2"/>
+        	<result property="applicationState" column="application_state"/>
+        	<result property="softwareRequirement" column="software_requirement"/>
+        	<result property="applicationTime" column="application_time"/>
+        	<result property="studentNumber" column="student_number"/>
+        	
+        	
+        	<association property="course" javaType="Course">
+        		<id column="id"/>
+        		<result property="courseId" column="course_id"/>
+        		<result property="courseName" column="course_name"/>
+        		<result property="courseType" column="course_type"/>
+        		<result property="courseCampus" column="course_campus"/>
+        		<result property="courseStartEndTime" column="course_start_end_time"/>
+        		<result property="courseTotalCredit" column="course_total_credit"/>
+        		<result property="courseExperimentTime" column="course_experiment_time"/>
+        		<result property="courseExperimentCredit" column="course_experiment_credit"/>
+        	</association>
+        	
+        	
+       </resultMap>  
+        
         
         
         <insert id="createApplication" parameterType="Application">
