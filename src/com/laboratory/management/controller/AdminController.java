@@ -22,7 +22,7 @@ import com.laboratory.management.service.AdminService;
 public class AdminController
 {
 	@Autowired
-	AdminService adminService;
+	AdminService adminService;  
 	
 	@RequestMapping("choseClassroom")//
 	public ModelAndView choseClassroom()
