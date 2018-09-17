@@ -42,6 +42,16 @@ public class ApplicationServiceImpl implements ApplicationService {
 		
 		return applicationMapper.listApplicationByTeacherId(Id);
 	}
+
+
+
+	@Override
+	public Application selectApplicationByApplicationId(String applicationId) {
+		
+		return applicationMapper.selectApplicationByApplicationId(applicationId);
+	}
+	
+	
 	
 	
 	

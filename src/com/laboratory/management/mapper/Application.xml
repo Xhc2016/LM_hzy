@@ -26,6 +26,37 @@
         </select> 
         
         -->
+        <delete id="deleteApplicationByApplicationId" parameterType="String" >
+            delete from application where application_id= #{applicationId}   
+        </delete>
+        
+        
+        <select id="selectApplicationByApplicationId" parameterType="String" resultMap="ApplicationsMap">
+            SELECT 
+        	a.application_id as application_id,
+        	a.course_id as course_id,
+        	a.ideal_time_1 as ideal_time_1,
+        	a.ideal_time_2 as ideal_time_2,
+        	a.application_state as application_state,
+        	a.software_requirement as software_requirement,
+        	a.application_time as application_time,
+        	a.application_remark as application_remark,
+        	a.student_number as student_number,
+        	
+        	
+        	c.course_id as course_id ,
+        	c.course_name as course_name ,
+        	c.course_type as course_type ,
+        	c.course_campus as course_campus ,
+        	c.course_start_end_time as course_start_end_time,
+        	c.course_total_credit as course_total_credit ,
+        	c.course_experiment_time as course_experiment_time,
+        	c.course_experiment_credit as  course_experiment_credit
+        	
+        	from application a 
+	            inner join course c on a.course_id = c.course_id
+	        Where application_id = #{applicationId}
+        </select>
         
         
         
