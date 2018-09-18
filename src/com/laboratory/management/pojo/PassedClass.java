@@ -2,13 +2,13 @@ package com.laboratory.management.pojo;
 
 public class PassedClass 
 {
-	private int passedClassId;
+	private Integer passedClassId;
 	
 	private User user;
 	
 	private Course course;
 	
-	private int classWeekType;//0 1 2
+	private Integer classWeekType;//0 1 2
 	
 	private String classWeekRange;//
 	
@@ -23,7 +23,7 @@ public class PassedClass
 	/**
 	 * @return passedClassId
 	 */
-	public int getPassedClassId() {
+	public Integer getPassedClassId() {
 		return passedClassId;
 	}
 
@@ -65,7 +65,7 @@ public class PassedClass
 	/**
 	 * @return classWeekType
 	 */
-	public int getClassWeekType() {
+	public Integer getClassWeekType() {
 		return classWeekType;
 	}
 

@@ -3,7 +3,7 @@ package com.laboratory.management.mapper;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
+//import org.apache.ibatis.annotations.Param;
 
 //import java.util.List;
 
@@ -17,11 +17,11 @@ public interface ApplicationMapper {
 	
 	public List<Application> listApplicationByApplicationState(String state); //根据申请的状态 
 
-	public void updateApplication(Application application);
+	public void updateApplication(Application application);//未完成
 	
 	public void deleteApplicationByApplicationId(String applicationId);
 
-	public void createApplication(Application application);
+	public void saveApplication(Application application);
 	
 	public Application selectApplicationByApplicationId(String applicationId);
 

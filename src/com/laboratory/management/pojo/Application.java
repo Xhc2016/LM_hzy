@@ -22,7 +22,7 @@ public class Application {
 	
 	private String applicationTime; //申请时间
 	
-	private int StudentNumber;
+	private Integer StudentNumber;
 	
 	
 
@@ -155,7 +155,7 @@ public class Application {
 	/**
 	 * @return studentNumber
 	 */
-	public int getStudentNumber() {
+	public Integer getStudentNumber() {
 		return StudentNumber;
 	}
 

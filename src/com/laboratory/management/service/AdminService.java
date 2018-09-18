@@ -8,30 +8,25 @@ import com.laboratory.management.pojo.PassedClass;
 
 public interface AdminService 
 {
-	List<Application> listApplication();
-
-	void delete(int classId);
 	
-	Application get(int classId);
-
-	void update(Application application);
-
+	public void deleteClassroom(String classroomId);
 	
+	public void addClassroom(Classroom classroom);
 	
-	void deleteClassroom(int id);
+	public List<Classroom> selectClassroomByCampus(String campus);
 	
-	int addClassroom(Classroom classroom);
+	public List<Classroom> listClassroom();
 	
-	List<Classroom> selectDistrict(String district);
+	public List<Application> listApplication();
 	
-	List<Classroom> listClassroom();
+	public void updateApplication(Application application);
 	
-	List<Application> select2Application(String class_campus,String week);
+	public List<Application> selectApplicationBy(String classCampus,String week);
 	
-	List<PassedClass> listPassedClass();
+	public List<PassedClass> listPassedClass();
 	
-	List<PassedClass> listPassedClass_three(String district,String classroomId,String theDay );
+	public List<PassedClass> listPassedClassBy(String campus,String classroomId,String theDay );
 	
-	void addPassedClass(PassedClass passedClass);
+	public void addPassedClass(PassedClass passedClass);
 	
 }

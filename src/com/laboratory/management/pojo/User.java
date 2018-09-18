@@ -16,7 +16,7 @@ public class User {
 	
 	private String  institute;//college
 	
-	private int role;//0 管理员 1 授课教师 2领导
+	private Integer role;//0 管理员 1 授课教师 2领导
 	
 	private String password;
 	
@@ -54,7 +54,7 @@ public class User {
 		this.institute = institute;
 	}
 
-	public int getRole() {
+	public Integer getRole() {
 		return role;
 	}
 

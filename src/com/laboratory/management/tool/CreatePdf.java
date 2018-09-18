@@ -1,6 +1,6 @@
 package com.laboratory.management.tool;
 
-//import javax.swing.text.Document;
+import com.itextpdf.text.Document;
 
 public class CreatePdf {
 	
@@ -12,5 +12,5 @@ public class CreatePdf {
 	
 	private static final double LINE_HIGHT_3 = 50.0 ;
 	
-	//Document
+	
 }

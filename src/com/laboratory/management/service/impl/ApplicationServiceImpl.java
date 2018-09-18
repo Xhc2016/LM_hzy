@@ -30,7 +30,7 @@ public class ApplicationServiceImpl implements ApplicationService {
 		
 		courseMapper.createCourse(application.getCourse());
 		
-		applicationMapper.createApplication(application);
+		applicationMapper.saveApplication(application);
 		
 	}
 

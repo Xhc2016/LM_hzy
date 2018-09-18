@@ -18,11 +18,11 @@ public class Course {
 	
 	private String courseStartEndTime; //课程起始结束时间
 	
-	private int courseTotalCredit; //课程总学分
+	private Integer courseTotalCredit; //课程总学分
 	
-	private int courseExperimentTime; //实验学时
+	private Integer courseExperimentTime; //实验学时
 	
-	private int courseExperimentCredit; //实验学分
+	private Integer courseExperimentCredit; //实验学分
 
 	public String getCourseId() {
 		return courseId;
@@ -75,7 +75,7 @@ public class Course {
 		this.courseStartEndTime = courseStartEndTime;
 	}
 
-	public int getCourseTotalCredit() {
+	public Integer getCourseTotalCredit() {
 		return courseTotalCredit;
 	}
 
@@ -83,7 +83,7 @@ public class Course {
 		this.courseTotalCredit = courseTotalCredit;
 	}
 
-	public int getCourseExperimentTime() {
+	public Integer getCourseExperimentTime() {
 		return courseExperimentTime;
 	}
 
@@ -91,7 +91,7 @@ public class Course {
 		this.courseExperimentTime = courseExperimentTime;
 	}
 
-	public int getCourseExperimentCredit() {
+	public Integer getCourseExperimentCredit() {
 		return courseExperimentCredit;
 	}
 

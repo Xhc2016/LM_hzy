@@ -2,131 +2,118 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    <mapper namespace="com.laboratory.management.mapper.ApplicationMapper">
-    
-        <!--  
-        <insert id="add" parameterType="User" >
-            insert into user_ (nickName) values (#{nickName});
-        </insert>
+<mapper
+	namespace="com.laboratory.management.mapper.ApplicationMapper">
 
-        <delete id="delete" parameterType="User" >
-            delete from user_ where id= #{id}   
-        </delete>
-         
-        <select id="get" parameterType="_int" resultType="User">
-            select * from   user_  where id= #{id}    
-        </select>
- 
-        <update id="update" parameterType="User" >
-            update user_ set nickName=#{nickName},gender=#{gender} where id=#{id} 
-        </update>
-        
-        <select id="list" resultType="User">
-            select * from   user_
-        </select> 
-        
-        -->
-        <delete id="deleteApplicationByApplicationId" parameterType="String" >
-            delete from application where application_id= #{applicationId}   
-        </delete>
-        
-        
-        <select id="selectApplicationByApplicationId" parameterType="String" resultMap="ApplicationsMap">
-            SELECT 
-        	a.application_id as application_id,
-        	a.course_id as course_id,
-        	a.ideal_time_1 as ideal_time_1,
-        	a.ideal_time_2 as ideal_time_2,
-        	a.application_state as application_state,
-        	a.software_requirement as software_requirement,
-        	a.application_time as application_time,
-        	a.application_remark as application_remark,
-        	a.student_number as student_number,
-        	
-        	
-        	c.course_id as course_id ,
-        	c.course_name as course_name ,
-        	c.course_type as course_type ,
-        	c.course_campus as course_campus ,
-        	c.course_start_end_time as course_start_end_time,
-        	c.course_total_credit as course_total_credit ,
-        	c.course_experiment_time as course_experiment_time,
-        	c.course_experiment_credit as  course_experiment_credit
-        	
-        	from application a 
-	            inner join course c on a.course_id = c.course_id
-	        Where application_id = #{applicationId}
-        </select>
-        
-        
-        
-        <select id="listApplicationByTeacherId" parameterType="String" resultMap="ApplicationsMap">
-        	SELECT 
-        	a.application_id as application_id,
-        	a.course_id as course_id,
-        	a.ideal_time_1 as ideal_time_1,
-        	a.ideal_time_2 as ideal_time_2,
-        	a.application_state as application_state,
-        	a.software_requirement as software_requirement,
-        	a.application_time as application_time,
-        	a.application_remark as application_remark,
-        	a.student_number as student_number,
-        	
-        	
-        	c.course_id as course_id ,
-        	c.course_name as course_name ,
-        	c.course_type as course_type ,
-        	c.course_campus as course_campus ,
-        	c.course_start_end_time as course_start_end_time,
-        	c.course_total_credit as course_total_credit ,
-        	c.course_experiment_time as course_experiment_time,
-        	c.course_experiment_credit as  course_experiment_credit
-        	
-        	from application a 
-	            inner join course c on a.course_id = c.course_id
-	        Where user_id = #{teacherId}
-        </select>
-        
-        
-        
-        <resultMap type="Application" id="ApplicationsMap">
-        	<id column="id"/>
-        	<result property="applicationId" column="application_id"/>
-        	<result property="idealTime1" column="ideal_time_1"/>
-        	<result property="idealTime2" column="ideal_time_2"/>
-        	<result property="applicationState" column="application_state"/>
-        	<result property="softwareRequirement" column="software_requirement"/>
-        	<result property="applicationTime" column="application_time"/>
-        	<result property="studentNumber" column="student_number"/>
-        	
-        	
-        	<association property="course" javaType="Course">
-        		<id column="id"/>
-        		<result property="courseId" column="course_id"/>
-        		<result property="courseName" column="course_name"/>
-        		<result property="courseType" column="course_type"/>
-        		<result property="courseCampus" column="course_campus"/>
-        		<result property="courseStartEndTime" column="course_start_end_time"/>
-        		<result property="courseTotalCredit" column="course_total_credit"/>
-        		<result property="courseExperimentTime" column="course_experiment_time"/>
-        		<result property="courseExperimentCredit" column="course_experiment_credit"/>
-        	</association>
-        	
-        	
-       </resultMap>  
-        
-        
-        
-        <insert id="createApplication" parameterType="Application">
-        
-            insert into application
-             (application_id,user_id,course_id,ideal_Time_1,ideal_Time_2,software_requirement,application_remark,student_number)
-             values
-              (#{applicationId},#{user.userId},#{course.courseId},
-              #{idealTime1},#{idealTime2},#{softwareRequirement},#{applicationRemark},
-              #{studentNumber})
-        </insert>
-        
-        
-        
-    </mapper>
+	<!-- <insert id="add" parameterType="User" > insert into user_ (nickName) 
+		values (#{nickName}); </insert> <delete id="delete" parameterType="User" 
+		> delete from user_ where id= #{id} </delete> <select id="get" parameterType="_int" 
+		resultType="User"> select * from user_ where id= #{id} </select> <update 
+		id="update" parameterType="User" > update user_ set nickName=#{nickName},gender=#{gender} 
+		where id=#{id} </update> <select id="list" resultType="User"> select * from 
+		user_ </select> -->
+	<delete id="deleteApplicationByApplicationId"
+		parameterType="String">
+		delete from application where application_id= #{applicationId}
+	</delete>
+
+
+	<select id="selectApplicationByApplicationId"
+		parameterType="String" resultMap="ApplicationsMap">
+		SELECT
+		a.application_id as application_id,
+		a.course_id as course_id, 
+		a.ideal_time_1 as ideal_time_1,
+		a.ideal_time_2 as ideal_time_2,
+		a.application_state as application_state,
+		a.software_requirement as software_requirement,
+		a.application_time as application_time,
+		a.application_remark as application_remark,
+		a.student_number as student_number,
+
+
+		c.course_id as course_id ,
+		c.course_name as course_name ,
+		c.course_type as course_type ,
+		c.course_campus as course_campus ,
+		c.course_start_end_time as course_start_end_time,
+		c.course_total_credit as course_total_credit ,
+		c.course_experiment_time as course_experiment_time,
+		c.course_experiment_credit as course_experiment_credit
+
+		from application a
+		inner join course c on a.course_id = c.course_id
+		Where application_id = #{applicationId}
+	</select>
+
+
+
+	<select id="listApplicationByTeacherId" parameterType="String"
+		resultMap="ApplicationsMap">
+		SELECT
+		a.application_id as application_id,
+		a.course_id as course_id,
+		<!--  
+		a.ideal_time_1 as ideal_time_1,
+		a.ideal_time_2 as ideal_time_2,
+		-->
+		a.application_state as application_state,
+
+
+		c.course_id as course_id ,
+		c.course_name as course_name
+		from application a
+		inner join course c on a.course_id = c.course_id
+		Where user_id = #{teacherId}
+	</select>
+
+
+
+	<resultMap type="Application" id="ApplicationsMap">
+		<id column="id" />
+		<result property="applicationId" column="application_id" />
+		<result property="idealTime1" column="ideal_time_1" />
+		<result property="idealTime2" column="ideal_time_2" />
+		<result property="applicationState" column="application_state" />
+		<result property="softwareRequirement"
+			column="software_requirement" />
+		<result property="applicationTime" column="application_time" />
+		<result property="studentNumber" column="student_number" />
+
+
+		<association property="course" javaType="Course">
+			<id column="id" />
+			<result property="courseId" column="course_id" />
+			<result property="courseName" column="course_name" />
+			<result property="courseType" column="course_type" />
+			<result property="courseCampus" column="course_campus" />
+			<result property="courseStartEndTime"
+				column="course_start_end_time" />
+			<result property="courseTotalCredit"
+				column="course_total_credit" />
+			<result property="courseExperimentTime"
+				column="course_experiment_time" />
+			<result property="courseExperimentCredit"
+				column="course_experiment_credit" />
+		</association>
+
+
+	</resultMap>
+
+
+
+
+
+	<insert id="saveApplication" parameterType="Application">
+
+		insert into application
+		(application_id,user_id,course_id,ideal_Time_1,ideal_Time_2,software_requirement,application_remark,student_number)
+		values
+		(#{applicationId},#{user.userId},#{course.courseId},
+		#{idealTime1},#{idealTime2},#{softwareRequirement},#{applicationRemark},
+		#{studentNumber})
+	</insert>
+
+
+
+</mapper>

@@ -12,8 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -99,18 +100,17 @@ public class TeacherController {
 			Course course
 			) {
 		
-		
+		//System.out.println("------------");
 		
 		User user = (User) session.getAttribute("user");
 	
-		//System.out.println(teacher.toString());
-	
-		
 		JSONObject jsonObject = new JSONObject();
 		
 		application.setUser(user);
 		
 		application.setCourse(course);
+		
+		
 		try {
 			
 			applicationService.createApplication(application);
@@ -123,12 +123,6 @@ public class TeacherController {
 			
 			//return jsonObject.toJSONString();
 		}
-		//applicationService.createApplication(application);
-		
-		//System.out.println(application.toString());
-		
-		//System.out.println(course.toString());
-		
 		
 		
 		jsonObject.put("success", "succcccccces");
@@ -142,7 +136,7 @@ public class TeacherController {
 	@RequestMapping("teacherInformation")
 	public String toTeacherInfo() {
 		
-		return "teacher/info";
+		return "teacher/personalInformation";
 		
 	}
 	
@@ -164,6 +158,27 @@ public class TeacherController {
 		return modelAndView;
 		
 	}
+	
+	@GetMapping("applicationDetail")
+	public ModelAndView applicationDetail(@RequestParam("id")String applicationId) {
+		
+		System.out.println("------------------"+applicationId);
+		
+		
+		ModelAndView modelAndView  = new ModelAndView();
+		
+		Application application = applicationService.selectApplicationByApplicationId(applicationId);
+		
+		System.out.println(application);
+		
+		modelAndView.addObject("application", application);
+		
+		modelAndView.setViewName("teacher/application/applicationDetail");
+		
+		return modelAndView;
+		
+	}
+
 	
 	
 

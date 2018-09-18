@@ -1,7 +1,6 @@
 package com.laboratory.management.test;
 
 import java.util.List;
-
 import javax.annotation.Resource;
 import org.junit.Test;
 import com.laboratory.management.pojo.Application;

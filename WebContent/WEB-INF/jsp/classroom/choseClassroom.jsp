@@ -1,23 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*"%>
- 
+	pageEncoding="UTF-8" import="java.util.*"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <title>教室选择</title>
 <br>
 <br>
 <div align="center">
-	校区：
-	<select id="select_1" name="selectDistrict" onchange="districtChange()">
-	   <option value="请选择">请选择</option>
+	校区： <select id="select_1" name="selectDistrict"
+		onchange="districtChange()">
+		<option value="请选择">请选择</option>
 		<option value="奉贤">奉贤</option>
 		<option value="徐汇">徐汇</option>
-	</select>
-
-	<br><br><br>
-	可用机房:
-	<select id="select_2" name="choseClassroom">
-	</select>
+	</select> <br>
 	<br>
+	<br> 可用机房: <select id="select_2" name="choseClassroom">
+	</select> <br>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.2.0.js"></script>
